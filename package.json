@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.1",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.0",
+    "oauth": "^0.9.15",
+    "util-inspect": "^0.1.8"
+  },
+  "name": "out-there-scraper",
+  "version": "0.0.1",
+  "description": "Twitter following link scraper",
+  "main": "server.js",
+  "license": "MIT"
+}
