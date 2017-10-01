@@ -88,6 +88,7 @@ app.get('/home', function(req, res){
         res.redirect('/sessions/connect');
       } else {
         var parsedData = JSON.parse(data);
+        console.log(parsedData);
         res.send('You are signed in: ' + inspect(parsedData.screen_name));
       }
     });
