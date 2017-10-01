@@ -27,13 +27,15 @@ var oauth = require('oauth');
 
 var app = express();
 
+const port = process.env.PORT || 8080;
+const callbackUrl = "https://out-there-scraper.herokuapp.com/sessions/callback";
 // Get your credentials here: https://dev.twitter.com/apps
 var _twitterConsumerKey = process.env.TWITTER_CONSUMER_KEY;
 var _twitterConsumerSecret = process.env.TWITTER_CONSUMER_SECRET;
 
 var consumer = new oauth.OAuth(
     "https://twitter.com/oauth/request_token", "https://twitter.com/oauth/access_token",
-    _twitterConsumerKey, _twitterConsumerSecret, "1.0A", "http://127.0.0.1:8080/sessions/callback", "HMAC-SHA1");
+    _twitterConsumerKey, _twitterConsumerSecret, "1.0A", callbackUrl, "HMAC-SHA1");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -94,8 +96,6 @@ app.get('/home', function(req, res){
 app.get('*', function(req, res){
     res.redirect('/home');
 });
-
-const port = process.env.PORT || 8080;
 
 app.listen(port, function() {
   console.log(`App runinng on port ${port}!`);
